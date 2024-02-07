@@ -7,12 +7,16 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.cookbookpro.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: IngredientsAdapter
+    private var ingredients: List<Ingredient> = listOf() // The ingredient list
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,5 +35,17 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        recyclerView = findViewById(R.id.ingredientsRecyclerView) //find the view from the xml
+        recyclerView.layoutManager = LinearLayoutManager(this) //set a layout manager
+
+        //Create a list of ingredients to display
+        ingredients = listOf(
+            Ingredient("Tomato", 2.0, "pcs"),
+            Ingredient("Salt", 1.0, "tbsp")
+        )
+
+        adapter = IngredientsAdapter(ingredients) //find the custom adapter
+        recyclerView.adapter = adapter //set the custom adapater to the view
     }
 }
