@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
@@ -14,9 +15,10 @@ import com.example.cookbookpro.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var recyclerView: RecyclerView
+    /*private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: IngredientsAdapter
-    private var ingredients: List<Ingredient> = listOf() // The ingredient list
+    private var ingredients: List<Ingredient> = listOf() // The ingredient list*/
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
-
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        recyclerView = findViewById(R.id.ingredientsRecyclerView) //find the view from the xml
+        /*recyclerView = findViewById(R.id.ingredientsRecyclerView) //find the view from the xml
         recyclerView.layoutManager = LinearLayoutManager(this) //set a layout manager
 
         //Create a list of ingredients to display
@@ -46,6 +47,12 @@ class MainActivity : AppCompatActivity() {
         )
 
         adapter = IngredientsAdapter(ingredients) //find the custom adapter
-        recyclerView.adapter = adapter //set the custom adapater to the view
+        recyclerView.adapter = adapter //set the custom adapater to the view*/
+
+    }
+
+    public fun navigateToList(){
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        navController.navigate(R.id.navigation_ingredient_list)
     }
 }
