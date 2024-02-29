@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cookbookpro.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
+    //git commit test
     private lateinit var binding: ActivityMainBinding
     /*private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: IngredientsAdapter
