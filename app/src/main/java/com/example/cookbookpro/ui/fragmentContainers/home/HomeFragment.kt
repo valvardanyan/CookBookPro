@@ -1,4 +1,4 @@
-package com.example.cookbookpro.ui.home
+package com.example.cookbookpro.ui.fragmentContainers.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,9 +16,6 @@ import com.example.cookbookpro.ui.ingredientsList.IngredientListFragment
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -38,16 +35,9 @@ class HomeFragment : Fragment() {
             textView.text = it
         }*/
 
-        binding.button.setOnClickListener{
-            (activity as? MainActivity)?.navigateToList()
-            /* val transaction = parentFragmentManager.beginTransaction()
-             transaction?.replace(, IngredientListFragment())
-             transaction?.addToBackStack(null) // Add this transaction to the back stack (optional)
-             transaction?.commit()*/
-        }
-
         return root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
