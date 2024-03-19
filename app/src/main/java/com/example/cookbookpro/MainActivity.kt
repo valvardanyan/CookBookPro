@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 
 class MainActivity : AppCompatActivity() {
-
+    //git commit test
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
 
